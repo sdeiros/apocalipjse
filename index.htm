@@ -8,42 +8,49 @@
   body {
     font-family: Arial, sans-serif;
     text-align: center;
+    color: #dddddd;
     margin-top: 50px;
+    background-color: rgb(41, 0, 0);
   }
   #countdown {
     position: relative;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: bold;
-    color: #333;
+    color: #dddddd;
     top: 26vh;
   }
   @media (max-width: 768px) {
     #countdown {
-      font-size: 24px;
+      font-size: 22px;
     }
   }
+
+  ::selection {
+    background-color: #810000;
+    color: #ffffff;
+}
+
 </style>
 </head>
 <body>
 
-<h3>Oi Diogo, o que vc acha?<br>fiz de teste pro show da Madona<br>(04/05 meia-noite)</h3>
+<h3>APOCALIPSE</h3>
 <div id="countdown"></div>
-
 <script>
   function countdown() {
-    const targetDate = new Date('2024-05-04T00:00:00');
+    const targetDate = new Date('2024-07-06T16:00:00');
     const now = new Date().getTime();
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-      document.getElementById('countdown').innerHTML = 'O evento já começou!';
+      document.getElementById('countdown').innerHTML = 'o apocalipse já começou, vá para este ponto de segurança';
     } else {
       const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
       const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
       const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
       const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-      document.getElementById('countdown').innerHTML = `${days} dias ${hours} horas ${minutes} minutos ${seconds} segundos`;
+      document.getElementById('countdown').innerHTML = `${days} DIAS, ${hours} HORAS, ${minutes} MINUTOS E ${seconds} SEGUNDOS`;
     }
   }
 
@@ -51,6 +58,8 @@
 
   countdown();
 </script>
+
+<!-- <p>ponto de segurança</p> -->
 
 </body>
 </html>
