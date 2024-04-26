@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apocalipse</title>
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin-top: 50px;
+  }
+  #countdown {
+    position: relative;
+    font-size: 36px;
+    font-weight: bold;
+    color: #333;
+    top: 26vh;
+  }
+  @media (max-width: 768px) {
+    #countdown {
+      font-size: 24px;
+    }
+  }
+</style>
+</head>
+<body>
+
+<h3>Oi Diogo, o que vc acha?<br>fiz de teste pro show da Madona<br>(04/05 meia-noite)</h3>
+<div id="countdown"></div>
+
+<script>
+  function countdown() {
+    const targetDate = new Date('2024-05-04T00:00:00');
+    const now = new Date().getTime();
+    const timeRemaining = targetDate - now;
+
+    if (timeRemaining <= 0) {
+      document.getElementById('countdown').innerHTML = 'O evento já começou!';
+    } else {
+      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+
+      document.getElementById('countdown').innerHTML = `${days} dias ${hours} horas ${minutes} minutos ${seconds} segundos`;
+    }
+  }
+
+  setInterval(countdown, 1000);
+
+  countdown();
+</script>
+
+</body>
+</html>
