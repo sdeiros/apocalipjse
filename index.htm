@@ -44,14 +44,17 @@
     const timeRemaining = targetDate - now;
 
     if (timeRemaining <= 0) {
-      document.getElementById('countdown').innerHTML = 'o apocalipse já começou, vá para este ponto de segurança';
+      document.getElementById('countdown').innerHTML = 'O apocalipse já começou. Vá para este ponto de segurança!';
     } else {
-      const days = Math.floor(timeRemaining / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((timeRemaining % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
+      let hours = Math.floor(timeRemaining / (1000 * 60 * 60));
+      let minutes = Math.floor((timeRemaining % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((timeRemaining % (1000 * 60)) / 1000);
 
-      document.getElementById('countdown').innerHTML = `${days} DIAS, ${hours} HORAS, ${minutes} MINUTOS E ${seconds} SEGUNDOS`;
+      // Adicionando zero à esquerda para os minutos e segundos, se necessário
+      minutes = (minutes < 10) ? "0" + minutes : minutes;
+      seconds = (seconds < 10) ? "0" + seconds : seconds;
+
+      document.getElementById('countdown').innerHTML = `${hours}:${minutes}:${seconds}`;
     }
   }
 
